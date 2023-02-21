@@ -1,0 +1,23 @@
+.is-unfilled-circle{
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: solid 0.05rem currentColor;
+    margin: 0.1rem;
+}
+
+.is-filled-circle{
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: solid 0.05rem currentColor;
+    background-color: currentColor;
+    margin: 0.1rem;
+}
+
+.is-dot-slider{
+    display: flex;
+    justify-content: center;
+}

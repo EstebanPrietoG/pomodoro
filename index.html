@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,100,1,-25"
+    />
+    <link rel="stylesheet" href="css/ToggleBulma.css" />
+    <link rel="stylesheet" href="css/BulamDotSlider.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="hero is-dark is-fullheight" id="page-color">
+      <div class="hero-body is-flex is-justify-content-center">
+        <div
+          class="appContainer is-flex is-flex-direction-column is-align-content-center"
+        >
+          <div class="block is-flex is-justify-content-space-around">
+            <div class="is-toggle-container">
+              <input
+                type="checkbox"
+                id="dark-mode-switch"
+                checked="checked"
+                class="is-toggle-rounded is-success"
+              />
+              <label
+                for="modo nocturno"
+                class="is-toggle-label material-symbols-outlined notranslate"
+              >
+                dark_mode
+              </label>
+            </div>
+            <div class="is-toggle-container">
+              <input
+                type="checkbox"
+                id="auto"
+                checked="checked"
+                class="is-toggle-rounded is-success"
+              />
+              <label for="a/m" class="is-toggle-label notranslate">
+                Auto
+              </label>
+            </div>
+          </div>
+          <div class="is-dot-slider" id="dot-interval">
+            <div class="is-filled-circle"></div>
+            <div class="is-unfilled-circle"></div>
+            <div class="is-unfilled-circle"></div>
+            <div class="is-unfilled-circle"></div>
+          </div>
+          <h1 class="is-size-5rem has-text-centered" id="timer-text">25:00</h1>
+          <h2 class="has-text-centered" id="timer-name">Pomodoro</h2>
+          <progress
+            class="progress is-small is-success"
+            value="15"
+            max="100"
+            id="progress-bar"
+          ></progress>
+          <div class="buttons is-justify-content-center">
+            <button
+              class="button is-success is-outlined mx-3"
+              type="button"
+              id="start-pause-button"
+            >
+              Start
+            </button>
+            <button class="button is-info is-outlined mx-3" id="reset-button">
+              Reset
+            </button>
+          </div>
+          <div class="buttons is-justify-content-center">
+            <button class="button is-danger is-outlined" id="hard-reset-button">
+              Reset All
+            </button>
+          </div>
+          <div
+            class="timerControlsContainer is-flex is-justify-content-space-around"
+          >
+            <div
+              class="m-3 is-flex is-flex-direction-column is-align-items-center"
+            >
+              <h2>Pomodoro</h2>
+              <input
+                type="number"
+                value="25"
+                step="1"
+                min="1"
+                max="99"
+                name="pomodoro"
+                class="input is-small is-custom-width mt-1"
+                id="pomodoro-counter"
+              />
+            </div>
+            <div
+              class="m-3 is-flex is-flex-direction-column is-align-items-center"
+            >
+              <h2>Short break</h2>
+              <input
+                type="number"
+                value="5"
+                step="1"
+                min="1"
+                max="99"
+                name="long break"
+                class="input is-small is-custom-width mt-1"
+                id="short-break-counter"
+              />
+            </div>
+            <div
+              class="m-3 is-flex is-flex-direction-column is-align-items-center"
+            >
+              <h3>Long break</h3>
+              <input
+                type="number"
+                value="15"
+                step="1"
+                min="1"
+                max="99"
+                name="Short break"
+                class="input is-small is-custom-width mt-1"
+                id="long-break-counter"
+              />
+            </div>
+          </div>
+          <div
+            class="m-3 is-flex is-flex-direction-column is-align-items-center"
+          >
+            <h2 class="has-text-centered">Long break interval</h2>
+            <input
+              type="number"
+              value="4"
+              step="1"
+              min="1"
+              max="10"
+              name="Long break interval"
+              class="input is-small is-custom-width mt-1"
+              id="break-interval"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/darkMode.js"></script>
+    <script src="js/darkModeAdmin.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/pomodoro.js"></script>
+  </body>
+</html>

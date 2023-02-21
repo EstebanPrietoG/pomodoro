@@ -1,0 +1,82 @@
+/* Bulma extension for toggle switch */
+
+/* Pill CSS */
+
+/* Pill background unchecked */
+input[type="checkbox"].is-toggle-rounded {
+  order: 2;
+  position: relative;
+  display: inline-block;
+  width: 3rem;
+  height: 1.5rem;
+  background-color: #c5c5c5;
+  appearance: none;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  box-shadow: inset 0 0 0.3rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+/* Pill background checked */
+input[type="checkbox"].is-toggle-rounded:checked {
+  background-color: hsl(171, 100%, 41%);
+}
+
+/* Pill background checked with success color */
+input[type="checkbox"].is-toggle-rounded.is-success:checked {
+  background-color: hsl(141, 53%, 53%);
+}
+
+/* Circle CSS */
+
+/* Circle unchecked */
+input[type="checkbox"].is-toggle-rounded::before{
+  content: "";
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  box-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.2);
+  transform: scale(0.8) translate(0rem);
+  background-color: #fff;
+  left: 0rem;
+  transition: all 0.3s;
+}
+
+/* Circle checked*/
+input[type="checkbox"].is-toggle-rounded:checked::before {
+  left: 1.5rem;
+}
+
+/* Toggle switch disabled*/
+
+input[type="checkbox"][disabled].is-toggle-rounded{
+  opacity: 0.5;
+}
+
+input[type="checkbox"][disabled]{
+  cursor: not-allowed;
+}
+
+/* Toggle container*/
+
+.is-toggle-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Toggle label*/
+
+label.is-toggle-label{
+  order: 1;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Toggle label disabled*/
+input[type="checkbox"][disabled].is-toggle-rounded + label{
+  opacity: 0.5;
+  cursor: not-allowed;
+}

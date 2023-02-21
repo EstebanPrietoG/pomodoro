@@ -1,0 +1,25 @@
+html,
+body {
+  height: 100%;
+  /* margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.is-size-5rem{
+  font-size: 5rem;
+}
+
+input.is-custom-width{
+  width: 4rem;
+}
+
+.hero.is-custom-width{
+  width: 100%;
+}
+
+.px-7{
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
