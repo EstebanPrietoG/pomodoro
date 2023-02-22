@@ -1,4 +1,5 @@
 const pageColor = document.getElementById("page-color");
+
 const darkModeSwitch = document.getElementById("dark-mode-switch");
 const autoModeSwitch = document.getElementById("auto");
 
@@ -6,6 +7,7 @@ const darkMode = new DarkMode(pageColor, "is-dark", "is-light");
 
 const currentDate = new Date();
 
+// Defines a function that determines the page mode based on the user or default settings
 const darkModeAdministrator = () => {
   if (autoModeSwitch.checked) {
     const hour = currentDate.getHours();
