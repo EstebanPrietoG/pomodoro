@@ -1,7 +1,9 @@
 const pageColor = document.getElementById("page-color");
 const darkModeSwitch = document.getElementById("dark-mode-switch");
 const autoModeSwitch = document.getElementById("auto");
+
 const darkMode = new DarkMode(pageColor, "is-dark", "is-light");
+
 const currentDate = new Date();
 
 const darkModeAdministrator = () => {

@@ -25,7 +25,7 @@ class Timer {
       if (this.currentTime == 0) {
         clearInterval(this.interval);
       }
-    }, 1000);
+    }, 100);
   }
 
   pause() {
