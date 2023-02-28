@@ -1,3 +1,6 @@
+/* Bulma extension for dot slider */
+
+/* Class of the unfilled circle */
 .is-unfilled-circle{
     content: "";
     width: 0.5rem;
@@ -7,6 +10,7 @@
     margin: 0.1rem;
 }
 
+/* Class of the filled circle */
 .is-filled-circle{
     content: "";
     width: 0.5rem;
@@ -17,6 +21,7 @@
     margin: 0.1rem;
 }
 
+/* Class of the container for the dot slider */
 .is-dot-slider{
     display: flex;
     justify-content: center;

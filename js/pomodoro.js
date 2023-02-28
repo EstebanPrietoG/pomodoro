@@ -1,3 +1,4 @@
+// Get DOM elements
 const dotInterval = document.getElementById("dot-interval");
 const timerText = document.getElementById("timer-text");
 const timerName = document.getElementById("timer-name");
@@ -12,21 +13,25 @@ const shortBreakCounter = document.getElementById("short-break-counter");
 const longBreakCounter = document.getElementById("long-break-counter");
 const breakInterval = document.getElementById("break-interval");
 
+// Set default timer values
 const pomodoroDefaultTime = 25;
 const shortBreakDefaultTime = 5;
 const longBreakDefaultTime = 15;
 const defaultLongInterval = 4;
 
+// Set initial state variables
 let pomodoroState = 1;
 let longBreakInterval = defaultLongInterval;
 let intervalCount = 0;
 
 let startPauseButtonState = false;
 
+// Create Timer objects
 const pomodoro = new Timer(pomodoroDefaultTime, timerText);
 const shortBreak = new Timer(shortBreakDefaultTime, timerText);
 const longBreak = new Timer(longBreakDefaultTime, timerText);
 
+// Set up object and tittle mappings
 const pomodoroTimers = {
   1: pomodoro,
   3: longBreak,
@@ -39,6 +44,9 @@ const pomodoroTimerNames = {
   2: "Short Break",
 };
 
+/**
+ * Function to create the dot interval indicator
+ */
 const createDotInterval = () => {
   while (dotInterval.firstChild) {
     dotInterval.removeChild(dotInterval.firstChild);
@@ -53,12 +61,20 @@ const createDotInterval = () => {
   }
 };
 
+/**
+ *Function to calculate progress bar value
+ * @returns {number} progress bar value
+ */
 const progressTime = () => {
   let time = pomodoroTimers[pomodoroState].getTime();
   let currentTime = pomodoroTimers[pomodoroState].getCurrentTime();
   return 100 - (currentTime / time) * 100;
 };
 
+/**
+ *Function to update dot interval indicator
+ * @param {number} counter value
+ */
 const adminDotInterval = (counter) => {
   dotInterval.children[counter].classList.add("is-filled-circle");
   dotInterval.children[counter].classList.remove("is-unfilled-circle");
@@ -75,6 +91,9 @@ const adminDotInterval = (counter) => {
   }
 };
 
+/**
+ *Function to reset the state of the app
+ */
 const setResetState = () => {
   pomodoro.reset();
   longBreak.reset();
@@ -89,6 +108,13 @@ const setResetState = () => {
   timerName.innerHTML = pomodoroTimerNames[pomodoroState];
 };
 
+/**
+ * Inspect the value of an input element and restrict it to a range.
+ *
+ * @param {HTMLInputElement} element - The input element to inspect.
+ * @param {number} min - The minimum value allowed for the input element.
+ * @param {number} max - The maximum value allowed for the input element.
+ */
 const inspectValueInput = (element, min, max) => {
   element.addEventListener("input", () => {
     if (element.value != "") {
@@ -100,6 +126,13 @@ const inspectValueInput = (element, min, max) => {
   });
 };
 
+/**
+ * Set the time for a timer and update the UI when the element loses focus.
+ *
+ * @param {HTMLInputElement} element - The input element that contains the time value.
+ * @param {Timer} timer - The timer object to set the time for.
+ * @param {number} defaultValue - The default time value to use if the input element is empty.
+ */
 const setTimeTimers = (element, timer, defaultValue) => {
   element.addEventListener("blur", () => {
     setResetState();
@@ -116,6 +149,7 @@ const setTimeTimers = (element, timer, defaultValue) => {
   });
 };
 
+// Update the progress bar and play a sound when the timer reaches 00:00.
 setInterval(() => {
   progressBar.value = progressTime();
   if (timerText.innerHTML == "00:00") {
@@ -139,8 +173,9 @@ setInterval(() => {
     timerName.innerHTML = pomodoroTimerNames[pomodoroState];
     pomodoroTimers[pomodoroState].renderTime();
   }
-}, 50);
+}, 500);
 
+// Start or pause the timer when the start/pause button is clicked.
 startPauseButton.addEventListener("click", () => {
   startPauseButtonState = !startPauseButtonState;
   startPauseButton.innerHTML = startPauseButtonState ? "Pause" : "Start";
@@ -151,17 +186,20 @@ startPauseButton.addEventListener("click", () => {
   }
 });
 
+// Reset the timer and UI when the reset button is clicked.
 resetButton.addEventListener("click", () => {
   pomodoroTimers[pomodoroState].reset();
   startPauseButtonState = false;
   startPauseButton.innerHTML = "Start";
 });
 
+// Reset the timer and UI to their default state when the hard reset button is clicked.
 hardResetButton.addEventListener("click", () => {
   setResetState();
   pomodoro.renderTime();
 });
 
+// Update the long break interval and UI when the break interval input element loses focus.
 breakInterval.addEventListener("blur", () => {
   setResetState();
   if (breakInterval.value != "") {
